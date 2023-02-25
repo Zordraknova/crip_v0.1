@@ -33,7 +33,7 @@ export class AuthService {
 	}
 
 	private async genToken(user) {
-		const payload = { email: user.email, id: user.id, roles: user.role };
+		const payload = { email: user.email, id: user.id, roles: user.role, username: user.username, ban: user.banned };
 		return {
 			token: this.jwtServ.sign(payload)
 		}
@@ -44,6 +44,8 @@ export class AuthService {
 		if (!user) {
 			throw new UnauthorizedException(WRONG_EMAIL_ERROR);
 		};
+		console.log(userDto.password)
+		console.log(user.password)
 		const passEq = await compare(userDto.password, user.password);
 
 		if (!passEq) {

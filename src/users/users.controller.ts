@@ -1,5 +1,5 @@
 import { UpdateDateColumn } from 'typeorm';
-import { User } from './users.model';
+import { Roles, User } from './users.model';
 import { CreateUserDto } from './dto/create_user.dto';
 import { Body, Delete, Get, Param, Put, UseGuards } from '@nestjs/common/decorators';
 import { UsersService } from './users.service';
@@ -7,6 +7,10 @@ import { Controller, Post } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { tokenAuthGuard } from 'src/guard/auth.guard';
+import { rolesGuard } from 'src/guard/roles.guard';
+import { HashRoles } from 'src/guard/roles.decorator';
+import { JwtGuard } from 'src/guard/jwt.guard';
+
 
 //контроллер запросов в БД пользователя
 
@@ -24,7 +28,11 @@ export class UsersController {
 
     @ApiOperation({ summary: 'Получаем всех пользователей' })
     @ApiResponse({ status: 200, type: [User] })
-    @UseGuards(tokenAuthGuard)
+    // @UseGuards(tokenAuthGuard)
+    @HashRoles(Roles.EDITOR, Roles.EDITOR)
+    @UseGuards(AuthGuard('jwt'), rolesGuard)
+
+    // @UseGuards(JwtGuard)
     @Get('/all')
     getUsers() {
         return this.usersService.findAllUser()
@@ -57,8 +65,8 @@ export class UsersController {
 
     @ApiOperation({ summary: 'Находим пользователя по имени' })
     @Get('/nik/:username')
-    getByNickName(@Param('username') nickname: string) {
-        return this.usersService.findOneByNickUser(nickname)
+    getByNickName(@Param('username') username: string) {
+        return this.usersService.findOneByNickUser(username)
     }
 
     @ApiOperation({ summary: 'Находим пользователя по имени' })

@@ -2,3 +2,4 @@ export const ALREADY_REGISTED_ERROR = ' пользователь c такими 
 export const WRONG_EMAIL_ERROR = 'пользователь c такими данными не найден';
 export const WRONG_PASSWORD_ERROR = 'неверный пароль';
 export const UNAUTHTORIZE_ERROR = 'пользователь не авторизован';
+export const STOP_ERROR = 'нет прав доступа';

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { CreateDateColumn, Entity, Column, PrimaryGeneratedColumn, Table, ManyToMany, UpdateDateColumn, JoinTable, BaseEntity } from 'typeorm';
+import { CreateDateColumn, Entity, Column, PrimaryGeneratedColumn, Table, ManyToMany, UpdateDateColumn, JoinTable, BaseEntity, OneToMany } from 'typeorm';
 
 //______________________________Модель таблицы пользователя
 export enum Roles {
@@ -18,7 +18,7 @@ export class User extends BaseEntity {
 
   //Name____
   @ApiProperty({ example: 'Jane Doe', description: 'имя пользователя' })
-  @Column({ length: 20, default: '' })
+  @Column({ length: 20, type: 'varchar', default: 'User' })
   username: string;
 
   //Email____
@@ -60,11 +60,15 @@ export class User extends BaseEntity {
   @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   lastChangedDateTime: Date;
 
+  //Post
+  // @OneToMany(() => ArticleEntity, (articles) => articles.author)
+  // article: ArticleEntity[];
+
   //Role____
   @Column({
     type: 'enum',
     enum: Roles,
     default: Roles.USER
   })
-  role: Roles
+  role: Roles[]
 }
