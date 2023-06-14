@@ -1,0 +1,17 @@
+nestjs
+
+rimaf
+
+"prebuild": "rimraf dist",
+
+vote
+
+mail
+
+create DB from first 
+___________________________________________________
+angular
+
+@auth0/angular-jwt"
+
+
