@@ -8,231 +8,70 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
   .spacer {
     flex: 1;
   }
 
+  .mat-sidenav-content::-webkit-scrollbar {
+    width: 10px;
+  }
 
 
-  .content {
+  .mat-sidenav-content::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+
+  .mat-sidenav-container::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+  }
+
+
+  .mat-sidenav-container::-webkit-scrollbar-thumb:hover {
+    background: #464e7e;
+  }
+
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .mat-sidenav {
+    border-radius: 10px;
     display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 9px;
+    color: primary;
+    box-shadow: 0 4px 17px #464e7e;
+    align-items: end;
+    top: 0;
+    z-index: -1;
   }
 
-  svg.material-icons {
-    height: 24px;
-    width: auto;
+  .active-link {
+    background-color: #464e7e;
   }
 
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
+  .mat-nav-list .mat-list-item:focus {
+    /* default bg color */
+    background-color: #464e7e;
+    /* ovrride bg color to match your item-active*/
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
-  .card svg.material-icons path {
-    fill: #888;
+  .mat-drawer-inner-container {
+    overflow: hidden !important;
   }
 
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-
-    .card-container>*:not(.circle-link),
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-
-
-    @media screen and (max-width: 575px) {
-      svg#rocket-smoke {
-        display: none;
-        visibility: hidden;
-      }
-    }
-
-    /* .mat-sidenav-content::-webkit-scrollbar {
-      width: 10px;
-    }
-
-
-    .mat-sidenav-content::-webkit-scrollbar-track {
-      border-radius: 10px;
-    }
-
-
-    .mat-sidenav-container::-webkit-scrollbar-thumb {
-      background: grey;
-      border-radius: 10px;
-    }
-
-
-    .mat-sidenav-container::-webkit-scrollbar-thumb:hover {
-      background: #464e7e;
-    } */
-    /* .mat-toolbar.mat-primary {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    } */
-
+  @media screen and (max-width: 620px) {
     .mat-sidenav {
-      border-radius: 10px;
-      display: flex;
-      margin-top: 9px;
-      color: primary;
-      box-shadow: 0 4px 17px #464e7e;
-      align-items: end;
-      /* position: sticky; */
-      top: 0;
-      /* z-index: 1; */
-    }
-
-    .active-link {
-      background-color: #464e7e;
-    }
-
-    .mat-nav-list .mat-list-item:focus {
-      /* default bg color */
-      background-color: #464e7e;
-      /* ovrride bg color to match your item-active*/
-      background-color: rgba(0, 0, 0, 0.1);
-
+      margin-top: 2px;
     }
   }
 </style>
 
+<!-- Toolbar -->
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header">
   <img width="55" routerLink="/" alt="UK Logo" src="../assets/icons/Konnect_logo.svg" />
@@ -243,36 +82,37 @@
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
 </mat-toolbar>
-<mat-sidenav-container>
+<mat-sidenav-container [hasBackdrop]="true">
   <!-- Sidenav -->
+
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
     [fixedTopGap] (click)="sidenav.toggle()">
+
     <mat-nav-list>
       <span class="spacer"></span>
 
-      <a mat-list-item>
+      <a mat-list-item fxLayoutAlign="space-around center">
         <mat-icon>dashboard</mat-icon> Dashboard
       </a>
 
-      <a mat-list-item>
+      <a mat-list-item fxLayoutAlign="space-around center">
         <mat-icon>person</mat-icon> User Profile
       </a>
-      <a mat-list-item routerLink="/new_post">
+      <a mat-list-item routerLink="/new_post" fxLayoutAlign="space-around center">
         <mat-icon>content_paste</mat-icon> New Post
       </a>
-      <a mat-list-item>
-        <mat-icon>library_books</mat-icon> Typography
+      <a mat-list-item routerLink="/post" fxLayoutAlign="space-around center">
+        <mat-icon>library_books</mat-icon> POST
       </a>
-      <a mat-list-item>
+      <a mat-list-item fxLayoutAlign="space-around center">
         <mat-icon>location_on</mat-icon> Maps
       </a>
-      <!-- <a mat-list-item routerLink="/login">
+      <a mat-list-item routerLink="/singin" fxLayoutAlign="space-around center">
         <mat-icon>how_to_reg</mat-icon> Login
-      </a> -->
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <!-- Main content -->
-
   <mat-sidenav-content>
 
 
@@ -280,4 +120,7 @@
 
 
   </mat-sidenav-content>
+
 </mat-sidenav-container>
+
+<!-- <router-outlet> </router-outlet> -->

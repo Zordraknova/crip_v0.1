@@ -1,0 +1,25 @@
+<!-- <p>login works!</p> -->
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="../../assets/profile-pix@0.5x.svg" class="profile-img-card" />
+
+    <div class="create-line"></div>
+
+
+    <mat-form-field class="full-width-input">
+      <input matInput placeholder="User" formControlName="userName" required>
+      <mat-error>
+        Please inform your user name
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput type="password" placeholder="Password" formControlName="password" required>
+      <mat-error>
+        Please inform your password
+      </mat-error>
+    </mat-form-field>
+    <div class="button">
+      <button mat-raised-button color="primary" type="submit">Login</button>
+    </div>
+  </div>
+</div>

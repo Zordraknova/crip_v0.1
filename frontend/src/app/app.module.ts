@@ -13,7 +13,8 @@ import { EditPostComponent } from './admin/edit-post/edit-post.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { LoaderComponent } from './@shared/loader/loader.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './admin/login/login.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 
@@ -27,9 +28,10 @@ import { LoginComponent } from './admin/login/login.component';
     EditPostComponent,
     DashboardComponent,
     LoaderComponent,
-    LoginComponent,
-
+    LoginComponent
   ],
+  providers: [],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -42,9 +44,8 @@ import { LoginComponent } from './admin/login/login.component';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    }),
+
+  ]
 })
 export class AppModule { }
