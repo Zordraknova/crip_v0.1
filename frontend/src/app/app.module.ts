@@ -19,33 +19,30 @@ import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    PostPageComponent,
-    ProfileComponent,
-    CreatePostComponent,
-    EditPostComponent,
-    DashboardComponent,
-    LoaderComponent,
-    LoginComponent
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    MaterialModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-
-  ]
+    declarations: [AppComponent],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        MaterialModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        HomeComponent,
+        PostPageComponent,
+        ProfileComponent,
+        CreatePostComponent,
+        EditPostComponent,
+        DashboardComponent,
+        LoaderComponent,
+        LoginComponent,
+    ]
 })
 export class AppModule { }
