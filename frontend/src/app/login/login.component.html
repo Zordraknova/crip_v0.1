@@ -5,19 +5,20 @@
 
     <div class="create-line"></div>
 
-
-    <mat-form-field class="full-width-input">
-      <input matInput placeholder="User" formControlName="userName" required>
-      <mat-error>
-        Please inform your user name
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="full-width-input">
-      <input matInput type="password" placeholder="Password" formControlName="password" required>
-      <mat-error>
-        Please inform your password
-      </mat-error>
-    </mat-form-field>
+    <form>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="User" formControlName="userName" required>
+        <mat-error>
+          Please inform your user name
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error>
+          Please inform your password
+        </mat-error>
+      </mat-form-field>
+    </form>
     <div class="button">
       <button mat-raised-button color="primary" type="submit">Login</button>
     </div>

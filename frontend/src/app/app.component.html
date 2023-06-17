@@ -64,6 +64,10 @@
     overflow: hidden !important;
   }
 
+  .mat-drawer-backdrop.mat-drawer-shown {
+    display: none;
+  }
+
   @media screen and (max-width: 620px) {
     .mat-sidenav {
       margin-top: 2px;
@@ -82,7 +86,7 @@
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
 </mat-toolbar>
-<mat-sidenav-container [hasBackdrop]="true">
+<mat-sidenav-container [hasBackdrop]="false">
   <!-- Sidenav -->
 
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
@@ -112,14 +116,14 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <!-- Main content -->
-  <mat-sidenav-content>
+  <!-- Main content
+  <mat-sidenav-content> -->
 
 
-    <router-outlet> </router-outlet>
+  <router-outlet> </router-outlet>
 
 
-  </mat-sidenav-content>
+  <!-- </mat-sidenav-content> -->
 
 </mat-sidenav-container>
 
