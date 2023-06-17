@@ -76,10 +76,8 @@
 </style>
 
 <!-- Toolbar -->
-<!-- Toolbar -->
 <mat-toolbar color="primary" class="header">
   <img width="55" routerLink="/" alt="UK Logo" src="../assets/icons/Konnect_logo.svg" />
-
   <div>Ukon</div>
   <div class="spacer"></div>
   <span class="nav-tool-items">
@@ -87,6 +85,7 @@
   </span>
 </mat-toolbar>
 <mat-sidenav-container [hasBackdrop]="false">
+
   <!-- Sidenav -->
 
   <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"

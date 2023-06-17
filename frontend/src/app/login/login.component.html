@@ -3,24 +3,28 @@
   <div class="card card-container">
     <img id="profile-img" src="../../assets/profile-pix@0.5x.svg" class="profile-img-card" />
 
-    <div class="create-line"></div>
+    <h1 style="text-align: center;">
+      Login
+    </h1>
 
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="full-width-input">
-        <input matInput placeholder="User" formControlName="userName" required>
+        <input matInput placeholder="email" formControlName="userName" required>
+        <mat-hint *ngIf="loginForm.controls.email.errors">Email is required</mat-hint>
         <mat-error>
-          Please inform your user name
+          Please inform your email
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width-input">
         <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-hint *ngIf="loginForm.controls.password.errors">Password is required</mat-hint>
         <mat-error>
           Please inform your password
         </mat-error>
       </mat-form-field>
     </form>
     <div class="button">
-      <button mat-raised-button color="primary" type="submit">Login</button>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit">Go</button>
     </div>
   </div>
 </div>

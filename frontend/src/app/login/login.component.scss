@@ -40,10 +40,6 @@ label {
 .button {
   margin-top: 10px;
   margin-right: 10px;
-}
-
-.create-line {
-  width: 100px;
-  border-top: 3px solid #32a1ce;
-  z-index: -1;
+  justify-content: center;
+  flex-direction: center;
 }
